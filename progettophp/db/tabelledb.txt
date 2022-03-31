@@ -1,0 +1,80 @@
+create database agenzia;
+use agenzia;
+create table quartieri(
+codice int(8) primary key not null auto_increment, 
+nome varchar(20) not null,
+urlmappa varchar(30) 
+);
+
+create table proprietari(
+codicefiscale char(16) primary key not null , 
+nome varchar(20) not null,
+indirizzo varchar(30),
+telefono char(10),
+email varchar(30) check(email like "%@%"),
+codiceiban char(27) not null
+);
+
+create table appartamenti(
+codice int(8) primary key not null auto_increment,
+indirizzo varchar(30) not null,
+prezzogiorno double, 
+numerocamere int check(numerocamere>=0),
+postiletto int check(postiletto>=0),
+usocucina char(1) check(usocucina in ("N","S")),
+parcheggio char(1) check(parcheggio in ("N","S")),
+note text,
+codicequartiere int(8) not null,
+codiceproprietario char(16) not null,
+foreign key(codicequartiere) references quartieri(codice),
+foreign key(codiceproprietario) references proprietari(codicefiscale) 
+);
+
+create table foto(
+codice int(8) primary key not null auto_increment,
+didascalia varchar(50),
+urlfoto varchar(30),
+codiceappartamento int(8) not null,
+foreign key(codiceappartamento) references appartamenti(codice)
+);
+
+create table clienti(
+codicefiscale char(16) primary key not null,
+nome varchar(20) not null,
+indirizzo varchar(30),
+nomeutente varchar(20) not null,
+pass_word varchar(20) not null,
+telefono char(10),
+cellulare char(10),
+email varchar(30) check(email like "%@%")
+);
+
+create table prenotazioni(
+codice int(8) primary key not null auto_increment,
+dataprenotazione date,
+confermaprenotazione char(1) check(confermaprenotazione in ("N","S")),
+codicecliente char(16),
+foreign key(codicecliente) references clienti(codicefiscale)
+);
+
+create table righe(
+codice int(8) primary key not null auto_increment,
+datainiziale date,
+datafinale date,
+costo double,
+confermariga char(1) check(confermariga in ("N","S")),
+codiceprenotazione int(8),
+codiceappartamento int(8),
+foreign key(codiceprenotazione) references prenotazioni(codice),
+foreign key(codiceappartamento) references appartamenti(codice)
+);
+
+create table disponibilita (
+codice int(8) primary key not null auto_increment,
+data_ date,
+disponibile char(1) check(disponibile in ("N","S")),
+codiceriga int(8),
+codiceappartamento int(8),
+foreign key(codiceriga) references righe(codice),
+foreign key(codiceappartamento) references appartamenti(codice)
+);
