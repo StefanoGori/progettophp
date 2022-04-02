@@ -12,7 +12,7 @@
     $telefono=$_POST['telefonoCasa'];
     $cellulare=$_POST['cellulare'];
 
-    $queryControllo="SELECT email, nomeutente, password FROM clienti WHERE email=$email AND nomeutente=$username AND password=$password";
+    $queryControllo="SELECT email, nomeutente, pass_word FROM clienti WHERE email='{$email}' AND nomeutente='{$username}' AND pass_word='{$password}'";
     $inserimentoNuovoUtente="INSERT INTO clienti(codicefiscale,nome,indirizzo,nomeutente,pass_word,telefono,cellulare,email) VALUES('{$cf}','{$nome}','{$indirizzo}','{$username}','{$password}','{$telefono}','{$cellulare}','{$email}')";
     $conn->query($queryControllo);
     
@@ -24,6 +24,6 @@
     else{
         $conn2->query($inserimentoNuovoUtente);
         $conn2->close();
-        header("Location:../elenco.html");
+        header("Location:elenco.php");
     }
 ?>
