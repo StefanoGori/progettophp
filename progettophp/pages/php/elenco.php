@@ -15,6 +15,11 @@
                 <br>
                 <ul>
                 <?php
+                    session_start();
+                    $_SESSION['nomeutente']=$_POST['username'];
+                    $_SESSION['email']=$_POST['email'];
+                    $_SESSION['password']=$_POST['password'];
+                    
                     include '../../db/connection.php';
                     $conn=db();
                     $query="SELECT codice, indirizzo FROM appartamenti ORDER BY indirizzo";
@@ -28,6 +33,9 @@
                     }
                 ?>
                 </ul>
+            </div>
+            <div id="aggapp">
+                <a href=nuovopro.php id="linkaggapp"><b>AGGIUNGI UN APPARTAMENTO IN AFFITTO</b></a>
             </div>
         </body>
     </html>
