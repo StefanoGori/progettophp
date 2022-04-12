@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AGGIUNGI APPARTAMENTO</title>
+    </head>
+    <body>
+        <div>
+            <form action="php/aggAppartamento.php" method="POST">
+                <label for="foto">SELEZIONA FOTO: </label>
+                <input type="file" name="foto">
+                <br>
+                <br>
+                <label for="indirizzo">INDIRIZZO: </label>
+                <input type="text" name="indirizzo">
+                <br>
+                <br>
+                <label for="prezzogiorno">PREZZO AL GIORNO: </label>
+                <input type="number" name="prezzogiorno">
+                <label for="prezzogiorno">&#8364</label>
+                <br>
+                <br>
+                <label for="numerocamere">NUMERO DI CAMERE: </label>
+                <input type="number" name="numerocamere">
+                <br>
+                <br>
+                <label for="postiletto">POSTI LETTO</label>
+                <input type="number" name="postiletto">
+                <br>
+                <br>
+                <label for="usocucina">USO CUCINA: </label>
+                <input type="radio" name="usocucina" value="S">
+                <label for="usocucina">SI</label>
+                <input type="radio" name="usocucina" value="N">
+                <label for="usocucina">NO</label>
+                <br>
+                <br>
+                <label for="parcheggio">PARCHEGGIO: </label>
+                <input type="radio" name="parcheggio" value="S">
+                <label for="parcheggio">SI</label>
+                <input type="radio" name="parcheggio" value="N">
+                <label for="parcheggio">NO</label>
+                <br>
+                <br>
+                <label for="note">NOTE:</label>
+                <br>
+                <textarea type="message" name="note" rows="10" cols="30">
+                </textarea>
+                <br>
+                <br>
+                <label for="quartiere">NOME QUARTIERE: </label>
+                <input type="text" name="quartiere">
+                <br>
+                <br>
+                <label for="linkq">LINK MAPS DEL QUARTIERE: </label>
+                <input type="url" name="linkq">
+                <br>
+                <br>
+                <input type="submit" value="AGGIUNGI">
+            </form>
+        </div>
+    </body>
+</html>

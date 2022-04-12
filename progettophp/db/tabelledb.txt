@@ -12,6 +12,7 @@ nome varchar(20) not null,
 indirizzo varchar(30),
 telefono char(10),
 email varchar(30) check(email like "%@%"),
+password varchar(250) not null,
 codiceiban char(27) not null
 );
 
