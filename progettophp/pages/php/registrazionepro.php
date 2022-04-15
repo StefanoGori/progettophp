@@ -10,8 +10,8 @@
     $password=sha1($_POST['password']);
     $telefono=$_POST['telefono'];
     $iban=$_POST['iban'];
-
-    $queryControllo="SELECT email, nomeutente, password FROM proprietari WHERE email='{$email}' AND nomeutente='{$username}' AND pass_word='{$password}'";
+    print_r($_POST);
+    $queryControllo="SELECT email, password FROM proprietari WHERE email='{$email}' AND password='{$password}'";
     $inserimentoNuovoUtente="INSERT INTO proprietari(codicefiscale,nome,indirizzo,telefono,email,codiceiban,password) 
                             VALUES('{$cf}','{$nome}','{$indirizzo}','{$telefono}','{$email}','{$iban}','{$password}')";
     $conn->query($queryControllo);
@@ -24,6 +24,8 @@
     else{
         $conn2->query($inserimentoNuovoUtente);
         $conn2->close();
+        session_start();
+        $_SESSION['codpro']=$cf;
         header("Location:../nuovoappartamento.html");
     }
 ?>
