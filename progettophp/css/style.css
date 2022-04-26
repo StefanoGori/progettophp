@@ -1,0 +1,27 @@
+#logo{
+    /*width: 300px;
+    height: 300px;*/
+    margin-left: -100px;
+    margin-right: -100px;
+    margin-top: -60px;
+}
+#nomeA{
+    color: red;
+    margin-left: 300px;
+    margin-top: -200px;
+}
+
+#aggapp{
+    position:fixed;
+    top: 650px;
+    right: 30px;
+    background-color: rgb(0, 60, 189);
+    padding: 15px;
+    border-radius: 15px;
+}
+#linkaggapp:link{
+    color:white;
+}
+#linkaggap:after{
+    color:white;
+}
