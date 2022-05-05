@@ -12,18 +12,18 @@
     $telefono=$_POST['telefonoCasa'];
     $cellulare=$_POST['cellulare'];
 
-    $queryControllo="SELECT email, nomeutente, pass_word FROM clienti WHERE email='{$email}' AND nomeutente='{$username}' AND pass_word='{$password}'";
+    $queryControllo="SELECT email, nomeutente, pass_word FROM clienti WHERE email='{$email}'";
     $inserimentoNuovoUtente="INSERT INTO clienti(codicefiscale,nome,indirizzo,nomeutente,pass_word,telefono,cellulare,email) VALUES('{$cf}','{$nome}','{$indirizzo}','{$username}','{$password}','{$telefono}','{$cellulare}','{$email}')";
     $conn->query($queryControllo);
     
-    if($conn->affected_rows>0){
+    if($conn->affected_rows==1){
         echo"ERRORE UTENTE GIA' ESISTENTE";
         $conn->close();
-        header("Location:../registrazione.html");
+        //header("Location:../registrazione.html");
     }
     else{
         $conn2->query($inserimentoNuovoUtente);
         $conn2->close();
-        header("Location:elenco.php");
+        //header("Location:elenco.php");
     }
 ?>

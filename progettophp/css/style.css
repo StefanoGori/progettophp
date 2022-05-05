@@ -25,3 +25,8 @@
 #linkaggap:after{
     color:white;
 }
+
+#logout{
+    float: inline-end;
+    
+}
