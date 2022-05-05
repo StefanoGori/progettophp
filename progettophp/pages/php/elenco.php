@@ -10,6 +10,7 @@
                 <br>
                 <br>
                 <br>
+                <button id="logout"><a href="logout.php">LOGOUT</a></button>
                 <hr>
                 <h3><b>Appartamenti offerti dall'Agenzia:</b></h3>
                 <br>
